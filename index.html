@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Guokai" content="http://benben.cc/">
+	<title>Bingo Line</title>
+	<script type="text/javascript" src="http://benben.cc/js/base/in.min.js" autoload="true" core="http://www.benben.cc/js/base/jquery-1.6.2.min.js"></script>
+</head>
+<body>
+
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0" id="kyodai-sound" style="display:block;width:0;height:0;overflow:hidden;"> 
+	<param name="movie" value="resources/kyodai.swf"> 
+	<param name="quality" value="high"> 
+	<param name="play" value="false"> 
+	<embed play="false" swliveconnect="true" name="kyodai-sound" src="resources/kyodai.swf" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+</object>
+
+<ul id="bingoline"></ul>
+<div id="sparkle"></div>
+
+<script type="text/javascript">
+var map=[];
+var data=[
+	{name:'',img:'images/none.jpg'},
+	{name:'guokai',img:'images/01.jpg'},
+	{name:'dier',img:'images/02.jpg'},
+	{name:'sun',img:'images/03.jpg'},
+	{name:'ying',img:'images/04.jpg'},
+	{name:'paulguo',img:'images/05.jpg'},
+	{name:'baby',img:'images/06.jpg'},
+	{name:'lost',img:'images/07.jpg'},
+	{name:'robot',img:'images/08.jpg'},
+	{name:'molight',img:'images/09.jpg'},
+	{name:'emma',img:'images/10.jpg'},
+	{name:'chris',img:'images/11.gif'},
+	{name:'babubear',img:'images/12.jpg'},
+	{name:'wesly',img:'images/13.gif'},
+	{name:'dennis',img:'images/14.jpg'},
+	{name:'iceyu',img:'images/15.jpg'},
+	{name:'world',img:'images/16.jpg'},
+	{name:'best',img:'images/17.jpg'},
+	{name:'fuck',img:'images/18.jpg'}
+];
+
+In.add('kyodai-core',{path:'js/bingo-kyodai.js',type:'js'});
+In.add('kyodai-ui-css',{path:'css/bingo-kyodai-ui.css',type:'css'});
+In.add('kyodai-ui-fn',{path:'js/bingo-kyodai-ui-fn.js',type:'js',rely:['kyodai-core','swf-control','kyodai-ui-css']});
+In.add('swf-control',{path:'js/swf-control.js',type:'js'});
+In('kyodai-ui-fn',function() {
+	var html='';
+	map=buildmatrix(6,6);
+	for(var i=1;i<map.length-1;i++) {
+		for(var j=1;j<map[i].length-1;j++) {
+			var item=data[map[i][j]];
+			html+='<li onclick="judge({x:'+i+',y:'+j+'},this)"><img src="'+item.img+'" /><span>'+item.name+'</span></li>';
+		}
+	}
+	$('#bingoline').html(html);
+});
+</script>
+
+</body>
+</html>

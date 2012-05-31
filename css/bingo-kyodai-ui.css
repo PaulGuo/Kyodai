@@ -1,0 +1,37 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:white url('../images/yinyuetai.png') no-repeat scroll top right;
+}
+
+#bingoline {
+	width:640px;
+	font-family:Georgia;
+	font-size:12px;
+}
+
+#bingoline li {
+	list-style:none;
+	float:left;
+	position:relative;
+	width:100px;
+	height:100px;
+	border:2px solid transparent;
+	margin:1px;
+	cursor:pointer;
+}
+
+#bingoline li span {
+	position:absolute;
+	bottom:0;
+	left:0;
+	text-align:center;
+	width:100%;
+	line-height:1.5em;
+	background:gray;
+	color:white;
+	opacity:0.8;
+}
